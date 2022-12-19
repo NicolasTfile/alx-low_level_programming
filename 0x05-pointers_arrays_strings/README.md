@@ -8,3 +8,5 @@ The function "6-puts2.c" prints every other character of a string, starting with
 The function "7-puts_half.c" prints half of a string.
 The function "8-print_array.c" prints n elements of an array of integers.
 The function "9-strcpy.c" copies the string pointed to by src, including the terminating null byte (\0), to the buffer pointed to by dest.
+The function "100-atoi.c" convert a string to an integer.
+The function "101-keygen.c" creates a program that generates random valid passwords for the program 101-crackme.
