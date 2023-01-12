@@ -1,41 +1,51 @@
 #include <stdlib.h>
-#include "main.h"
 
 /**
- * string_nconcat - concatenates two strings.
- * @s1: first string
- * @s2: second string
- * @n: bytes of second string required
- * Return: newly allocated space in memory, return null if function fails.
- */
+ * string_nconcat - function that concatenates two strings
+ *
+ * @s1: string 1
+ * @s2: string 2
+ * @n: bytes of @s2 to add to @s1 to be a new string
+ *
+ * Return: new string followed by the first @n bytes
+ *         of string 2 @s2 or NULL
+*/
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int len1 = 0, lent, len2 = 0, i, j;
-	char *ptr;
+	unsigned int l1, l2, i, j;
+	char *str;
 
+	/*treat NULL as empty string*/
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	while (s1[len1] != '\0')
-		len1++;
-	while (s2[len2] != '\0')
-		len2++;
-	if (n >= len2)
-		n = len2;
-	lent = len1 + n + 1;
 
-	ptr = (char *) malloc((len1 + n + 1) * sizeof(char));
-	if (ptr == NULL)
+	l1 = l2 = 0;
+	/*length of both s1 & s2 respectively*/
+	while (s1[l1] != '\0')
+		l1++;
+	while (s2[l2] != '\0')
+		l2++;
+
+	/*set n to length of s2*/
+	if (n >= l2)
+		n = l2;
+
+	str = (char *) malloc((l1 + n + 1) * sizeof(char));
+	if (str == NULL)
 		return (NULL);
+
+	/*add s1 to str*/
 	for (i = 0; s1[i] != '\0'; i++)
-		ptr[i] = s1[i];
+		str[i] = s1[i];
+	/*add s2 n bytes to str*/
 	for (j = 0; j < n && s2[j] != '\0'; j++)
 	{
-		ptr[i] = s2[j];
+		str[i] = s2[j];
 		i++;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	str[i] = '\0';
+	return (str);
 }
