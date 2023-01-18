@@ -13,3 +13,5 @@
 3-op_functions.c - contains 5 functions
 
 3-get_op_func.c - selects the correct function from 3-op_functions.c to perform the operation asked by the user.
+
+100-main_opcodes.c - prints the opcodes of its own main function up to a specified number of bytes.
