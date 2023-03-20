@@ -1,10 +1,22 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
-int printf(const char *format, ...)
+int rand()
 {
-        write(1, "9 8 10 24 75 - 9\n", 17);
-        write(1, "Congratulations, you win the Jackpot!\n", 38);
-        exit(EXIT_SUCCESS);
+	static int ct = -1;
+
+	ct++;
+	if (ct == 0)
+		return 8;
+	if (ct == 1)
+		return 8;
+	if (ct == 2)
+		return 7;
+	if (ct == 3)
+		return 9;
+	if (ct == 4)
+		return 23;
+	if (ct == 5)
+		return 74;
+	return ct * ct % 30000;
 }
